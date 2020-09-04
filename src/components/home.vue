@@ -1,12 +1,17 @@
 <template>
   <div>
-     <div>
-        首页
-     </div>
+     <appheader></appheader>
+     
+     <appnavber></appnavber>
+
+     <appmain></appmain>
   </div>
 </template>
 
 <script>
+import appheader from './appheader/index'
+import appnavber from './appnavber/index'
+import appmain from './appmain/index'
 export default {
   name: '',
   data() { 
@@ -18,7 +23,7 @@ export default {
 
   },
   components:{
-
+        appheader,appnavber,appmain
   },
   computed: {
 
@@ -35,6 +40,7 @@ export default {
  }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+
 
 </style>

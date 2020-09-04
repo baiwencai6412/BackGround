@@ -20,10 +20,10 @@ export default {
             url: "/user/info"
         })
     },
-    list(){
-        return request({
-            url:""
-        })
-    }
+    // list(){
+    //     return request({
+    //         url:""
+    //     })
+    // }
 
 }
