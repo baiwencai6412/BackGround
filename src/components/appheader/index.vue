@@ -9,16 +9,17 @@
             </router-link>
         </div>
         <div class="info">
-            <el-dropdown>
-                <span class="el-dropdown-link">
-                    秦军<i class="el-icon-arrow-down el-icon--right"></i>
-                </span>
-                <el-dropdown-menu slot="dropdown">
-                    <el-dropdown-item><i class="el-icon-edit"></i>修改密码</el-dropdown-item>
-                    <el-dropdown-item><i class="el-icon-s-fold"></i>推出系统</el-dropdown-item>
-                </el-dropdown-menu>
-                </el-dropdown>
-        </div>
+      <el-dropdown @command="handle">
+        <span class="el-dropdown-link">
+          {{name}}
+          <i class="el-icon-arrow-down el-icon--right"></i>
+        </span>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item icon="el-icon-edit" command="changePass">修改密码</el-dropdown-item>
+          <el-dropdown-item icon="el-icon-s-fold" command="checkOut">退出系统</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+    </div>
      </div>
 </template>
 
@@ -27,7 +28,7 @@ export default {
   name: '',
   data() { 
     return {
-
+        name:""
     }
   },
   props: {
@@ -40,15 +41,41 @@ export default {
 
   },
   created() {
-
+    let info = JSON.parse(localStorage.getItem('bai_info'));
+    this.name = info.name !== 'undefined' ? info.name : "";
   },
   mounted() {
 
   },
-  methods:{
+  methods: {
+      handle(command){
+          console.log(command)
+          switch(command){
+            case "changePass" : 
+                this.changePass();
+                break;
+            case "checkOut" : 
+                this.checkOut();
+                break;    
+          }
+          console.log(command)
 
-  },
- }
+      },
+      changePass(){
+          console.log("修改密码")
+      },
+      checkOut(){
+          console.log("退出登录")
+          localStorage.removeItem('bai_token')
+
+          localStorage.removeItem('bai_info')
+
+          this.$router.push('/login')
+          
+      }
+  },
+};
+ 
 </script>
 
 <style lang="scss" scoped>
