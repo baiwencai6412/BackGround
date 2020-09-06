@@ -48,7 +48,7 @@ export default {
     left: 240px;
     right: 0;
     bottom: 0;
-    background: #ddd;
+    background: #fff;
 }
 .el-breadcrumb{
     padding: 20px;

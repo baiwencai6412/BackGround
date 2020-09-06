@@ -54,7 +54,7 @@ export default {
   },
   methods:{
     btn(form){
-        console.log(this.$refs.form)
+        // console.log(this.$refs.form)
         this.$refs[form].validate((val)=>{
             console.log(val)
             if(val){

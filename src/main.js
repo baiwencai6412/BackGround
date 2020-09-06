@@ -11,6 +11,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.use(ElementUI)
 
+import './permission'
+
 console.log(process.env.VUE_APP_BASE_API)
 Vue.config.productionTip = false;
 
