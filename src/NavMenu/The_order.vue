@@ -1,12 +1,11 @@
 <template>
   <div>
-     <div>
-        asd
-     </div>
+     <member></member>
   </div>
 </template>
 
 <script>
+import member from '../views/membel'
 export default {
   name: '',
   data() { 
@@ -18,7 +17,7 @@ export default {
 
   },
   components:{
-
+        member
   },
   computed: {
 
@@ -27,7 +26,7 @@ export default {
 
   },
   mounted() {
-    
+
   },
   methods:{
 

@@ -1,6 +1,7 @@
 import request from '../utils/request'
 // import { search } from 'core-js/fn/symbol'
 
+
 export default {
     getlist() {
         return request({
@@ -8,11 +9,16 @@ export default {
             method: "post",
         })
     },
-    search(page, size, searchMap){
+    search(page, size, searchMap) {
         return request({
             url: '/membel/list/search/${page}/${size}',
             method: "post",
-            data:searchMap
         })
-    }
+    },
+    
+    // echarts() {
+    //     request.post( "ROOT_PATH+'/echarts.json'").then(res=>{
+    //         console.log(res)
+    //     })
+    // }
 }

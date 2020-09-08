@@ -1,7 +1,7 @@
 <template>
   <div>
      <div>
-        asd
+      商家列表
      </div>
   </div>
 </template>
@@ -27,7 +27,7 @@ export default {
 
   },
   mounted() {
-    
+
   },
   methods:{
 
