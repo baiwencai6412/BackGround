@@ -1,18 +1,24 @@
 <template>
   <div class="member">
-    <el-form ref="form" :inline="true" :model="form" label-width="80px">
-      <el-form-item label="活动名称">
-        <el-input v-model="form.name"></el-input>
+    <el-form ref="form" :inline="true" :model="scarchmap" label-width="80px">
+      <el-form-item>
+        <el-input v-model="scarchmap.name" placeholder="会员卡号"></el-input>
       </el-form-item>
-      <el-form-item label="活动区域">
-        <el-select v-model="form.region" placeholder="请选择活动区域">
-          <el-option label="区域一" value="shanghai"></el-option>
-          <el-option label="区域二" value="beijing"></el-option>
+      <el-form-item>
+        <el-input v-model="scarchmap.name" placeholder="会员卡号"></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-select v-model="scarchmap.region" placeholder="支付方式">
+          <el-option v-for="(item,index) in paytypeval" :key="index" :label="item.name" :value="item.type"></el-option>
         </el-select>
+        <el-form-item prop="birthday">
+        <el-date-picker value-format="yyyy-MM-dd" v-model="searchMap.birthday" type="date" placeholder="出生日期"></el-date-picker>
+      </el-form-item>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="onSubmit">立即创建</el-button>
-        <el-button>取消</el-button>
+        <el-button type="primary" @click="onSubmit">立即创建</el-button>
+        <el-button>重置</el-button>
       </el-form-item>
     </el-form>
     <el-table :data="list" height="532" border style="width: 100%">
@@ -71,8 +77,10 @@ export default {
       currentPage: 1,
       pageSize: 10,
       searchMap: {},
-      name: "",
-      form: ""
+      paytypeval:payTypeOptions,
+      scarchmap:{
+
+      }
     };
   },
   filters: {
